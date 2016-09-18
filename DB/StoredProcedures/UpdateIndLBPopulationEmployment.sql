@@ -201,6 +201,12 @@ BEGIN
 	,SY.SurveyYearId
 	,LFS.SurveyEffectiveYearId
 	
+	-- Update percentage columns
+	UPDATE dbo.LF_Indicator_PopulationEmployment
+		SET PerLabourforce = CAST(((TotalLabourForce/TotalPopulation) *100) as decimal(5,2))
+			,PerEmployment = CAST(((TotalEmployment/TotalPopulation) *100) as decimal(5,2))
+			,PerInactivePopulation = CAST(((TotalInactivePopulation/TotalPopulation) *100) as decimal(5,2))
 
+			
 END
 GO
