@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{B706466B-2686-40F0-9710-94DA08CC5238}" Name="LocalHost.LMIS">
+      <DtsConnectionManagerID>LocalHost.LMIS</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{941FEA36-AFA2-418B-B6F5-7ADD0344D480}" Name="Profiling.xml">
+      <DtsConnectionManagerID>Profiling.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests />
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles />
+  </DataProfileOutput>
+</DataProfile>

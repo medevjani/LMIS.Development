@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Malawi.LMIS.Reports", "Malawi.LMIS.Reports\Malawi.LMIS.Reports.rptproj", "{3F11A5E0-8005-4FD9-BC49-2E0EEEC0C9E9}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Malawi.LMIS.Packages", "Malawi.LMIS.Packages\Malawi.LMIS.Packages.dtproj", "{E0976F24-9A3D-4072-82E7-A2673DC51BB2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Development|Default = Development|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F11A5E0-8005-4FD9-BC49-2E0EEEC0C9E9}.Debug|Default.ActiveCfg = Debug
+		{3F11A5E0-8005-4FD9-BC49-2E0EEEC0C9E9}.Debug|Default.Build.0 = Debug
+		{3F11A5E0-8005-4FD9-BC49-2E0EEEC0C9E9}.Debug|Default.Deploy.0 = Debug
+		{3F11A5E0-8005-4FD9-BC49-2E0EEEC0C9E9}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{3F11A5E0-8005-4FD9-BC49-2E0EEEC0C9E9}.DebugLocal|Default.Build.0 = DebugLocal
+		{3F11A5E0-8005-4FD9-BC49-2E0EEEC0C9E9}.Development|Default.ActiveCfg = DebugLocal
+		{3F11A5E0-8005-4FD9-BC49-2E0EEEC0C9E9}.Development|Default.Build.0 = DebugLocal
+		{3F11A5E0-8005-4FD9-BC49-2E0EEEC0C9E9}.Release|Default.ActiveCfg = Release
+		{3F11A5E0-8005-4FD9-BC49-2E0EEEC0C9E9}.Release|Default.Build.0 = Release
+		{3F11A5E0-8005-4FD9-BC49-2E0EEEC0C9E9}.Release|Default.Deploy.0 = Release
+		{E0976F24-9A3D-4072-82E7-A2673DC51BB2}.Debug|Default.ActiveCfg = Development
+		{E0976F24-9A3D-4072-82E7-A2673DC51BB2}.Debug|Default.Build.0 = Development
+		{E0976F24-9A3D-4072-82E7-A2673DC51BB2}.DebugLocal|Default.ActiveCfg = Development
+		{E0976F24-9A3D-4072-82E7-A2673DC51BB2}.DebugLocal|Default.Build.0 = Development
+		{E0976F24-9A3D-4072-82E7-A2673DC51BB2}.Development|Default.ActiveCfg = Development
+		{E0976F24-9A3D-4072-82E7-A2673DC51BB2}.Development|Default.Build.0 = Development
+		{E0976F24-9A3D-4072-82E7-A2673DC51BB2}.Release|Default.ActiveCfg = Development
+		{E0976F24-9A3D-4072-82E7-A2673DC51BB2}.Release|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

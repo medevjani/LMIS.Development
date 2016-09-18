@@ -1,0 +1,8 @@
+1. Install AccessDatabaseEngine in the DB server
+2. install SSRS & SSIS components
+2. Configure SSRS in native mode
+4. Provide SQLSERVER agent user full control access to the path where source, error and errortemplate files are stored
+5. Set password to commandline while sql server agent job is set. "EncryptAllWithPassword" is configured for package.
+6. password is labourforce
+7. Uncheck 64bit runtime while setting up SQL server agent job
+8. configure smtp to send db mail
