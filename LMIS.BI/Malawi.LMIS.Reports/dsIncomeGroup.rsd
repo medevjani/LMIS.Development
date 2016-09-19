@@ -3,7 +3,7 @@
   <DataSet Name="">
     <Query>
       <DataSourceReference>dsLMIS</DataSourceReference>
-      <CommandText>Select * from dbo.incomeGroup;</CommandText>
+      <CommandText>Select * from dbo.incomeGroup ORDER BY IncomeGroupCode;</CommandText>
     </Query>
     <Fields>
       <Field Name="IncomeGroupId">
@@ -17,6 +17,10 @@
       <Field Name="IncomeGroupTitle">
         <DataField>IncomeGroupTitle</DataField>
         <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="CreatedDate">
+        <DataField>CreatedDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
       </Field>
     </Fields>
   </DataSet>

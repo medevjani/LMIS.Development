@@ -3,7 +3,7 @@
   <DataSet Name="">
     <Query>
       <DataSourceReference>dsLMIS</DataSourceReference>
-      <CommandText>Select * from dbo.Gender;</CommandText>
+      <CommandText>Select * from dbo.Gender order by GenderCode;</CommandText>
     </Query>
     <Fields>
       <Field Name="GenderId">

@@ -4,29 +4,37 @@
     <Query>
       <DataSourceReference>dsLMIS</DataSourceReference>
       <DataSetParameters>
-        <DataSetParameter Name="@RegionId">
+        <DataSetParameter Name="@RegionCode">
+          <DefaultValue />
           <ReadOnly>false</ReadOnly>
           <Nullable>false</Nullable>
           <OmitFromQuery>false</OmitFromQuery>
-          <rd:DbType>Int32</rd:DbType>
+          <rd:DbType>AnsiString</rd:DbType>
+          <rd:IsMultiValued>true</rd:IsMultiValued>
         </DataSetParameter>
-        <DataSetParameter Name="@AgeGroupId">
+        <DataSetParameter Name="@AgeGroupCode">
+          <DefaultValue />
           <ReadOnly>false</ReadOnly>
           <Nullable>false</Nullable>
           <OmitFromQuery>false</OmitFromQuery>
-          <rd:DbType>Int32</rd:DbType>
+          <rd:DbType>AnsiString</rd:DbType>
+          <rd:IsMultiValued>true</rd:IsMultiValued>
         </DataSetParameter>
-        <DataSetParameter Name="@GenderId">
+        <DataSetParameter Name="@GenderCode">
+          <DefaultValue />
           <ReadOnly>false</ReadOnly>
           <Nullable>false</Nullable>
           <OmitFromQuery>false</OmitFromQuery>
-          <rd:DbType>Int32</rd:DbType>
+          <rd:DbType>AnsiString</rd:DbType>
+          <rd:IsMultiValued>true</rd:IsMultiValued>
         </DataSetParameter>
-        <DataSetParameter Name="@IncomeGroupId">
+        <DataSetParameter Name="@IncomeGroupCode">
+          <DefaultValue />
           <ReadOnly>false</ReadOnly>
           <Nullable>false</Nullable>
           <OmitFromQuery>false</OmitFromQuery>
-          <rd:DbType>Int32</rd:DbType>
+          <rd:DbType>AnsiString</rd:DbType>
+          <rd:IsMultiValued>true</rd:IsMultiValued>
         </DataSetParameter>
       </DataSetParameters>
       <CommandType>StoredProcedure</CommandType>

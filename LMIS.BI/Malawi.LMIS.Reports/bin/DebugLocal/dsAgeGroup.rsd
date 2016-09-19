@@ -3,7 +3,7 @@
   <DataSet Name="">
     <Query>
       <DataSourceReference>dsLMIS</DataSourceReference>
-      <CommandText>Select * from AgeGroup;</CommandText>
+      <CommandText>Select * from AgeGroup order by AgeGroupCode</CommandText>
     </Query>
     <Fields>
       <Field Name="AgeGroupId">
@@ -17,6 +17,10 @@
       <Field Name="AgeGroupTitle">
         <DataField>AgeGroupTitle</DataField>
         <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="CreatedDate">
+        <DataField>CreatedDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
       </Field>
     </Fields>
   </DataSet>

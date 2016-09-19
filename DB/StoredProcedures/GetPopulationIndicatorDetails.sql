@@ -17,14 +17,14 @@ GO
 -- Author:		Devjani
 -- Create date: 18th Sept 2016
 -- Description:	Get populaion related indicator data
--- GetPopulationIndicatorDetails 0,0,0,0
+-- GetPopulationIndicatorDetails '1,1','1','1','1'
 -- =============================================
 ALTER PROCEDURE GetPopulationIndicatorDetails 
 (
-	@RegionId INT = NULL
-	,@AgeGroupId INT = NULL
-	,@GenderId INT = NULL
-	,@IncomeGroupId INT = NULL
+	@RegionCode VARCHAR(MAX) = NULL
+	,@AgeGroupCode VARCHAR(MAX) = NULL
+	,@GenderCode VARCHAR(MAX) = NULL
+	,@IncomeGroupCode VARCHAR(MAX) = NULL
 )
 
 AS
@@ -94,6 +94,11 @@ BEGIN
 	ON LFIPE.SectorId = S.SectorId
 	LEFT JOIN dbo.Occupation O
 	ON LFIPE.OcupationId = O.OccupationId
-
+	WHERE ((R.RegionCode IS NULL AND @RegionCode LIKE '%-1%') OR (R.RegionCode IN (SELECT * FROM FnSplit(@RegionCode))))
+	AND ((AG.AgeGroupCode IS NULL AND @AgeGroupCode LIKE '%-1%') OR (AG.AgeGroupCode IN (SELECT * FROM FnSplit(@AgeGroupCode))))
+	AND( (G.GenderCode IS NULL AND @GenderCode LIKE '%-1%') OR (G.GenderCode IN (SELECT * FROM FnSplit(@GenderCode))))
+	AND ((IG.IncomeGroupCode IS NULL AND @IncomeGroupCode LIKE '%-1%') OR (IG.IncomeGroupCode IN (SELECT * FROM FnSplit(@IncomeGroupCode))))
+	----AND G.GenderId IN(SELECT * FROM FnSplit(@GenderId))
+	--AND IG.IncomeGroupId IN(SELECT * FROM FnSplit(@IncomeGroupId))
 END
 GO

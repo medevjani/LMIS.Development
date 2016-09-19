@@ -2,10 +2,10 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>Malawi.LMIS.Packages</Name>
-    <LastWriteTime>2016-09-18T11:39:20.2873681Z</LastWriteTime>
+    <LastWriteTime>2016-09-18T20:02:16.8901038Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptAllWithPassword</LastKnownProtectionLevel>
-    <Salt>nZ13SDqK</Salt>
-    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHsSPRnfWIUKtjhJ2X1YMjgAAAAACAAAAAAAQZgAAAAEAACAAAACnXXXzXvOED+4jm02W8x6sS5xI5KCtnDjuyJy08DMtWgAAAAAOgAAAAAIAACAAAACSoBOsCyGdF8+ksqFeXMlq3tTIUtQGuZbggJivPz0AxjAAAABng6kaC3RZGtFE9CPbg4bVwCePG/lbfuHNiJiqE4699FbaAJJVM/6wP52mvZuXuNFAAAAAT+s4MxIj2eYrLXzloa8epUxIeVCoRN468geqaZ7OoZqawI5luX+ZGOaY/YbgRkpT9+GMR1Xem/dAZR3ao4TRcA==</LastKnownProtectedHashedPassword>
+    <Salt>N1/KfLwe</Salt>
+    <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHsSPRnfWIUKtjhJ2X1YMjgAAAAACAAAAAAAQZgAAAAEAACAAAAAtSrXT9E9/mEnKU4KUlQTLl3IlVfDZw14dNz4xTRixIwAAAAAOgAAAAAIAACAAAACaEC4m6y8tFGx2ZWv/gOj/nwPN2oQWxXFDUngmPbfFVTAAAABcj+p0ptAtlY/hZfFol+HtN1CrMKt4bTGPe0/FpKAXDwKxDEowXxcxTg1B5zl2x1VAAAAAKX3m+lVblKVXwvNKaBL0sOjeZnVtFf2yklmDeAeFfz68+Qfyqh+Rb/wHW9WORskNZs+Z/uwzQIUVruhP3VJoFQ==</LastKnownProtectedHashedPassword>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
@@ -13,14 +13,14 @@
       <LastWriteTime>2016-09-18T10:48:30.0222271Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptAllWithPassword</LastKnownProtectionLevel>
       <Salt>TFyI4qs6</Salt>
-      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHsSPRnfWIUKtjhJ2X1YMjgAAAAACAAAAAAAQZgAAAAEAACAAAACUiVQk22bFupRDW4LERCOV1V46FwLMYND9vp5oxTBVYgAAAAAOgAAAAAIAACAAAABNwaKYNu5krHo3Uuxg8fzq+izCcNQ1LPVytgydoIkKWzAAAADqZATax54yIIzEPiDbmHE/62n7YY2F4SiqVa/3pCWbnAo6xt9b4Af/ZhUH6Ev14ZlAAAAAs0jGjtzRKsK2hxsj0ABFFTVC0jNbLCRQdz0me1KO/15FbOpHkpStI142hWPOim+AjK9WpN/d6Y6JP2P9NMBcZA==</LastKnownProtectedHashedPassword>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHsSPRnfWIUKtjhJ2X1YMjgAAAAACAAAAAAAQZgAAAAEAACAAAABQEkyyP+1Fxj3GoCyhSS7wpoevaIjVWf52EosUOJyc4QAAAAAOgAAAAAIAACAAAACK/EhSU4nug4Ki2AbyXSkKTsyILw+7Qhpg/WcdJvavAjAAAABnzuo9K3MnlVdkrksNf/MMl++DcaTlpVLVuWOEsh+T1kwgQTjIlJdLjesw3Visl71AAAAAfP+VQlLIx87+qRDtgvIoHYRPMJd/PpC7lDkl5J6d0l7aR6s2AbCQ7FIB3H1rovA4Go/bDIgpWfDane02kRL8Ag==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Package1.dtsx</Name>
       <LastWriteTime>2016-08-15T14:00:52.9163514Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptAllWithPassword</LastKnownProtectionLevel>
       <Salt>HMD+E8xT</Salt>
-      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHsSPRnfWIUKtjhJ2X1YMjgAAAAACAAAAAAAQZgAAAAEAACAAAADMXjS8w+R7efL9zQ7CWrfyhb7VCUKJlbcaxTIWGU3onwAAAAAOgAAAAAIAACAAAAA9kaWDd5Xywd0RbXXb+AeeGClfBtlV0SvR77olveg1FTAAAADrMwqibXjUF4fj6ECTSuI0YCOafojz40FaMqv8pp86ykZtd/5M+6nN4bcW8xS/pvNAAAAAn2K04fRxxIWQZOKK6zVx0Jl7XbCxS1g4SGWtV745PY/MRXcUeDBY6ileDwgR+1pcvhofvjnkLpMG++qaxpknRQ==</LastKnownProtectedHashedPassword>
+      <LastKnownProtectedHashedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHsSPRnfWIUKtjhJ2X1YMjgAAAAACAAAAAAAQZgAAAAEAACAAAADmaEdy5UFit4pJvuvbtiFoXG5J0ROA9FQ0kzCyoA7IPwAAAAAOgAAAAAIAACAAAAD4lrr8oxT+3xSJR8AIk08RUv885m13JJpQMrugvStYWTAAAAADS1bA+rrkwIdT2CK9P7/vVpfGghsrI2yITdr0sQBPTNaVBMW6W28t97jLyqZ+FMdAAAAAdw+FG5c1r8kBxBDNOgQn8flZQ+KAozkn1g5z+wzEGTpjrMttQn+CLvp7K8CR4PaRn1v9B3l+wMNCo19o5NCr7g==</LastKnownProtectedHashedPassword>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
 </BuildLog>
