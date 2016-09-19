@@ -7,7 +7,28 @@
       <FullPath>dsLMIS.rds</FullPath>
     </ProjectItem>
   </DataSources>
-  <DataSets />
+  <DataSets>
+    <ProjectItem>
+      <Name>dsRegion.rsd</Name>
+      <FullPath>dsRegion.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>dsIncomeGroup.rsd</Name>
+      <FullPath>dsIncomeGroup.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>dsGender.rsd</Name>
+      <FullPath>dsGender.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>dsAgeGroup.rsd</Name>
+      <FullPath>dsAgeGroup.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>dsPopulationEmployment.rsd</Name>
+      <FullPath>dsPopulationEmployment.rsd</FullPath>
+    </ProjectItem>
+  </DataSets>
   <Reports>
     <ProjectItem>
       <Name>LabourForceParticipationRatio.rdl</Name>
