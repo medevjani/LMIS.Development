@@ -40,25 +40,26 @@ BEGIN
 		,SectorId
 		,SurveyYearId
 		,SurveyEffectiveYearId
+		,EducationId
 		,TotalPopulation
-,TotalLabourForce
-,TotalInactivePopulation
+,TotalLabourForceBroad
+,TotalLabourForceStrict
+,TotalInactivePopulationBroad
+,TotalInactivePopulationStrict
 ,TotalEmployment
-,TotalUnemployment
+,TotalUnemploymentBroad
+,TotalUnemploymentStrict
 ,TotalYouthEmployment
-, TotalYouthUnemployment
-,TotalYouthLabourForce
+, TotalYouthUnemploymentBroad
+, TotalYouthUnemploymentStrict
+,TotalYouthLabourForceBroad
+,TotalYouthLabourForceStrict
 ,TotalAdultEmployment
-,TotalAdultUnemployment
-,TotalAdultLabourForce
+,TotalAdultUnemploymentBroad
+,TotalAdultUnemploymentStrict
+,TotalAdultLabourForceBroad
+,TotalAdultLabourForceStrict
 ,TotalTimeRelUnderEmployment
-,TotalLessThanPrimaryQualification
-,TotalPrimaryQualification
-,TotalSecondaryQualification
-,TotalUniversityQualification
-,TotalOtherTertiaryQualification
-,TotalVocationalQualification
-,TotalUnknownQualification
 	)
 	SELECT 
 		AG.AgeGroupId
@@ -70,7 +71,7 @@ BEGIN
 		,S.SectorId
 		,SY.SurveyYearId
 		,LFS.SurveyEffectiveYearId
-
+		,E.EducationId
 		--LFS.age15
 		--,LFS.Reg
 		--, LFS.gender
@@ -78,24 +79,15 @@ BEGIN
 		--,LFS.occupation
 		--,LFS.Residence
 		--,LFS.sector
-		--,SUM(CASE WHEN BG1>=15 THEN 1 ELSE 0 END) TotalPopulation
-		,SUM(ELT) TotalPopulation
-		,SUM(CASE WHEN employed=1 
-					OR unemployed_broad=1 
-					OR unemployed_strict=1 THEN 1 
-				ELSE 0 
-			END) TotalLabourForce
-		,(SUM(ELT)
-		 - SUM(CASE WHEN employed=1 
-					OR unemployed_broad=1 
-					OR unemployed_strict=1 THEN 1 
-				ELSE 0 
-			END)) AS TotalInactivePopulation --Total Population – Labour Force
+		,SUM(CASE WHEN BG1>=15 THEN 1 ELSE 0 END) TotalPopulation
+		--,SUM(ELT) TotalPopulation
+		,SUM(CASE WHEN labour_force_broad=1 OR labour_force_broad=2 THEN 1 ELSE 0 END) TotalLabourForceBroad
+		,SUM(CASE WHEN labour_force_strict=1 OR labour_force_strict=2 THEN 1 ELSE 0 END) TotalLabourForceStrict
+		,SUM(CASE WHEN inactive_broad=1 THEN 1 ELSE 0 END) TotalInactivePopulationBroad
+		,SUM(CASE WHEN inactive_strict=1 THEN 1 ELSE 0 END) TotalInactivePopulationStrict
 		,SUM(CASE WHEN employed=1 THEN 1 ELSE 0 END) TotalEmployment
-		,SUM(CASE WHEN unemployed_broad=1 
-					OR unemployed_strict=1 THEN 1 
-				ELSE 0 
-			END) TotalUnemployment
+		,SUM(CASE WHEN unemployed_broad=1 THEN 1 ELSE 0 END) TotalUnemploymentBroad
+		,SUM(CASE WHEN unemployed_strict=1 THEN 1 ELSE 0 END) TotalUnemploymentStrict
 		,SUM(CASE WHEN employed=1 
 					AND (AG.AgeGroupTitle='15 - 19'
 						OR AG.AgeGroupTitle='20 - 24'
@@ -104,22 +96,38 @@ BEGIN
 						) THEN 1 
 				ELSE 0 
 			END) TotalYouthEmployment
-		,SUM(CASE WHEN (unemployed_broad=1 OR unemployed_strict=1)
+		,SUM(CASE WHEN (unemployed_broad=1)
 					AND (AG.AgeGroupTitle='15 - 19'
 						OR AG.AgeGroupTitle='20 - 24'
 						OR AG.AgeGroupTitle='25 - 29'
 						OR AG.AgeGroupTitle='30 - 34'
 						) THEN 1 
 				ELSE 0 
-			END) TotalYouthUnemployment
-		,SUM(CASE WHEN (employed=1 OR unemployed_broad=1 OR unemployed_strict=1)
+			END) TotalYouthUnemploymentBroad
+			,SUM(CASE WHEN (unemployed_strict=1)
 					AND (AG.AgeGroupTitle='15 - 19'
 						OR AG.AgeGroupTitle='20 - 24'
 						OR AG.AgeGroupTitle='25 - 29'
 						OR AG.AgeGroupTitle='30 - 34'
 						) THEN 1 
 				ELSE 0 
-			END) TotalYouthLabourForce
+			END) TotalYouthUnemploymentStrict
+		,SUM(CASE WHEN (labour_force_broad=1 OR labour_force_broad=2)
+					AND (AG.AgeGroupTitle='15 - 19'
+						OR AG.AgeGroupTitle='20 - 24'
+						OR AG.AgeGroupTitle='25 - 29'
+						OR AG.AgeGroupTitle='30 - 34'
+						) THEN 1 
+				ELSE 0 
+			END) TotalYouthLabourForceBroad
+		,SUM(CASE WHEN (labour_force_strict=1 OR labour_force_strict=2)
+					AND (AG.AgeGroupTitle='15 - 19'
+						OR AG.AgeGroupTitle='20 - 24'
+						OR AG.AgeGroupTitle='25 - 29'
+						OR AG.AgeGroupTitle='30 - 34'
+						) THEN 1 
+				ELSE 0 
+			END) TotalYouthLabourForceStrict
 		,SUM(CASE WHEN employed=1 
 					AND (AG.AgeGroupTitle='35 - 39'
 						OR AG.AgeGroupTitle='40 - 44'
@@ -130,7 +138,7 @@ BEGIN
 						) THEN 1 
 				ELSE 0 
 			END) TotalAdultEmployment
-		,SUM(CASE WHEN (unemployed_broad=1 OR unemployed_strict=1)
+		,SUM(CASE WHEN (unemployed_broad=1)
 					AND (AG.AgeGroupTitle='35 - 39'
 						OR AG.AgeGroupTitle='40 - 44'
 						OR AG.AgeGroupTitle='45 - 49'
@@ -139,8 +147,8 @@ BEGIN
 						OR AG.AgeGroupTitle='60 - 64'
 						) THEN 1 
 				ELSE 0 
-			END) TotalAdultUnemployment
-		,SUM(CASE WHEN (employed=1 OR unemployed_broad=1 OR unemployed_strict=1)
+			END) TotalAdultUnemploymentBroad
+			,SUM(CASE WHEN (unemployed_strict=1)
 					AND (AG.AgeGroupTitle='35 - 39'
 						OR AG.AgeGroupTitle='40 - 44'
 						OR AG.AgeGroupTitle='45 - 49'
@@ -149,18 +157,31 @@ BEGIN
 						OR AG.AgeGroupTitle='60 - 64'
 						) THEN 1 
 				ELSE 0 
-			END) TotalAdultLabourForce
+			END) TotalAdultUnemploymentStrict
+		,SUM(CASE WHEN (labour_force_broad=1 OR labour_force_broad=2)
+					AND (AG.AgeGroupTitle='35 - 39'
+						OR AG.AgeGroupTitle='40 - 44'
+						OR AG.AgeGroupTitle='45 - 49'
+						OR AG.AgeGroupTitle='50 - 54'
+						OR AG.AgeGroupTitle='55 - 59'
+						OR AG.AgeGroupTitle='60 - 64'
+						) THEN 1 
+				ELSE 0 
+			END) TotalAdultLabourForceBroad
+			,SUM(CASE WHEN (labour_force_strict=1 OR labour_force_strict=2)
+					AND (AG.AgeGroupTitle='35 - 39'
+						OR AG.AgeGroupTitle='40 - 44'
+						OR AG.AgeGroupTitle='45 - 49'
+						OR AG.AgeGroupTitle='50 - 54'
+						OR AG.AgeGroupTitle='55 - 59'
+						OR AG.AgeGroupTitle='60 - 64'
+						) THEN 1 
+				ELSE 0 
+			END) TotalAdultLabourForceStrict
 		
 		
 		,SUM(CASE WHEN E02C_Total<48 THEN 1 ELSE 0 END) TotalTimeRelUnderEmployment-- Employed less than 48 hours= E02C_Total< 48
-		--,SUM(CASE WHEN BG1>=15 THEN 1 ELSE 0 END) TotalPopulation
-		,SUM(CASE WHEN Q.QualificationTitle='None' THEN 1 ELSE 0 END) TotalLessThanPrimaryQualification
-		,SUM(CASE WHEN Q.QualificationTitle='Primary' THEN 1 ELSE 0 END) TotalPrimaryQualification
-		,SUM(CASE WHEN Q.QualificationTitle='Secondary' THEN 1 ELSE 0 END) TotalSecondaryQualification
-		,SUM(CASE WHEN Q.QualificationTitle='University' THEN 1 ELSE 0 END) TotalUniversityQualification
-		,SUM(CASE WHEN Q.QualificationTitle='Other tertiary' THEN 1 ELSE 0 END) TotalOtherTertiaryQualification
-		,SUM(CASE WHEN Q.QualificationTitle='Vocational' THEN 1 ELSE 0 END) TotalVocationalQualification
-		,SUM(CASE WHEN Q.QualificationTitle IS NULL THEN 1 ELSE 0 END) TotalUnknownQualificationQualification
+		
 	FROM
 	[dbo].[LabourForceSurvey] LFS
 	LEFT JOIN [dbo].[Region] R
@@ -179,9 +200,9 @@ BEGIN
 	ON LFS.occupation = O.OccupationCode
 	LEFT JOIN [dbo].[SurveyYear] SY
 	ON LFS.HH_Y = SY.SurveyYear
-	LEFT JOIN [dbo].[Qualification] Q
-	ON LFS.BG9 = Q.QualificationCode
-	
+	LEFT JOIN [dbo].[Education] E
+	ON LFS.education = E.EducationCode
+	WHERE BG1>=15
 	GROUP BY 
 	--Reg
 	--,Residence
@@ -200,13 +221,32 @@ BEGIN
 	,S.SectorId
 	,SY.SurveyYearId
 	,LFS.SurveyEffectiveYearId
+	,E.EducationId
 	
 	-- Update percentage columns
 	UPDATE dbo.LF_Indicator_PopulationEmployment
-		SET PerLabourforce = CAST(((TotalLabourForce/TotalPopulation) *100) as decimal(5,2))
+		SET 
+			PerLabourForceBroad = CAST(((TotalLabourForceBroad/TotalPopulation) *100) as decimal(5,2))
+			,PerLabourForceStrict = CAST(((TotalLabourForceStrict/TotalPopulation) *100) as decimal(5,2))
 			,PerEmployment = CAST(((TotalEmployment/TotalPopulation) *100) as decimal(5,2))
-			,PerInactivePopulation = CAST(((TotalInactivePopulation/TotalPopulation) *100) as decimal(5,2))
+			,PerInactivePopulationBroad = CAST(((TotalInactivePopulationBroad/TotalPopulation) *100) as decimal(5,2))
+			,PerInactivePopulationStrict = CAST(((TotalInactivePopulationStrict/TotalPopulation) *100) as decimal(5,2))
+			,PerUnemploymentBroad = CAST(((TotalUnemploymentBroad/TotalPopulation) *100) as decimal(5,2))
+			,PerUnemploymentStrict = CAST(((TotalUnemploymentStrict/TotalPopulation) *100) as decimal(5,2))
+			,PerYouthEmployment = CAST(((TotalYouthEmployment/TotalPopulation) *100) as decimal(5,2))
+			,PerYouthUnemploymentBroad = CAST(((TotalYouthUnemploymentBroad/TotalPopulation) *100) as decimal(5,2))
+			,PerYouthUnemploymentStrict = CAST(((TotalYouthUnemploymentStrict/TotalPopulation) *100) as decimal(5,2))
+			,PerAdultEmployment = CAST(((TotalAdultEmployment/TotalPopulation) *100) as decimal(5,2))
+			,PerAdultUnemploymentBroad = CAST(((TotalAdultUnemploymentBroad/TotalPopulation) *100) as decimal(5,2))
+			,PerAdultUnemploymentStrict = CAST(((TotalAdultUnemploymentStrict/TotalPopulation) *100) as decimal(5,2))
+	--where totalpopulation>0
 
-			
+	select
+	CAST(((TotalLabourForceBroad/TotalPopulation) *100) as decimal(5,2))
+	from LF_Indicator_PopulationEmployment
+			where totalpopulation>0
+			and CAST(((TotalLabourForceBroad/TotalPopulation) *100) as decimal(6,2))>100
 END
 GO
+
+

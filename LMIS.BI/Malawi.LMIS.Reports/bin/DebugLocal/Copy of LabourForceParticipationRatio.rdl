@@ -302,6 +302,26 @@
         </Field>
       </Fields>
     </DataSet>
+    <DataSet Name="dsIndicatorColumnOption">
+      <SharedDataSet>
+        <SharedDataSetReference>dsIndicatorColumnOption</SharedDataSetReference>
+        <QueryParameters>
+          <QueryParameter Name="@IndicatorName">
+            <Value>=Parameters!IndicatorName.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </SharedDataSet>
+      <Fields>
+        <Field Name="IndicatorColumnInternalName">
+          <DataField>IndicatorColumnInternalName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IndicatorColumnDisplayName">
+          <DataField>IndicatorColumnDisplayName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
@@ -2214,7 +2234,7 @@
                 <ChartMember>
                   <Group Name="Chart2_SeriesGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!EffectiveYear.Value</GroupExpression>
+                      <GroupExpression>=Fields(Parameters!Column.Value).Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
@@ -2230,7 +2250,7 @@
                       <Label>Per Labourforce Strict</Label>
                     </ChartMember>
                   </ChartMembers>
-                  <Label>=Fields!EffectiveYear.Value</Label>
+                  <Label>=Fields(Parameters!Column.Value).Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
@@ -2320,14 +2340,14 @@
                       <FontSize>8pt</FontSize>
                     </Style>
                     <ChartAxisTitle>
-                      <Caption>Year</Caption>
+                      <Caption />
                       <Style>
                         <FontFamily>Tahoma</FontFamily>
                         <FontSize>8pt</FontSize>
                       </Style>
                     </ChartAxisTitle>
                     <ChartMajorGridLines>
-                      <Enabled>False</Enabled>
+                      <Enabled>True</Enabled>
                       <Style>
                         <Border>
                           <Color>Gainsboro</Color>
@@ -2335,6 +2355,7 @@
                       </Style>
                     </ChartMajorGridLines>
                     <ChartMinorGridLines>
+                      <Enabled>True</Enabled>
                       <Style>
                         <Border>
                           <Color>Gainsboro</Color>
@@ -2429,7 +2450,7 @@
                       <FontSize>8pt</FontSize>
                     </Style>
                     <ChartAxisTitle>
-                      <Caption>Perticipation Rate</Caption>
+                      <Caption />
                       <Style>
                         <FontFamily>Tahoma</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -2558,7 +2579,7 @@
                 <ColumnSeparatorColor>Black</ColumnSeparatorColor>
               </ChartLegend>
             </ChartLegends>
-            <Palette>Custom</Palette>
+            <Palette>SeaGreen</Palette>
             <ChartCustomPaletteColors>
               <ChartCustomPaletteColor>#4c68a2</ChartCustomPaletteColor>
               <ChartCustomPaletteColor>#b5dddf</ChartCustomPaletteColor>
@@ -2617,7 +2638,7 @@
                 <ChartMember>
                   <Group Name="Chart3_SeriesGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!EffectiveYear.Value</GroupExpression>
+                      <GroupExpression>=Fields(Parameters!Column.Value).Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
@@ -2633,7 +2654,7 @@
                       <Label>Per Labourforce Strict</Label>
                     </ChartMember>
                   </ChartMembers>
-                  <Label>=Fields!EffectiveYear.Value</Label>
+                  <Label>=Fields(Parameters!Column.Value).Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
@@ -2735,14 +2756,14 @@
                       <FontSize>8pt</FontSize>
                     </Style>
                     <ChartAxisTitle>
-                      <Caption>Year</Caption>
+                      <Caption />
                       <Style>
                         <FontFamily>Tahoma</FontFamily>
                         <FontSize>8pt</FontSize>
                       </Style>
                     </ChartAxisTitle>
                     <ChartMajorGridLines>
-                      <Enabled>False</Enabled>
+                      <Enabled>True</Enabled>
                       <Style>
                         <Border>
                           <Color>Gainsboro</Color>
@@ -2750,6 +2771,7 @@
                       </Style>
                     </ChartMajorGridLines>
                     <ChartMinorGridLines>
+                      <Enabled>True</Enabled>
                       <Style>
                         <Border>
                           <Color>Gainsboro</Color>
@@ -2844,7 +2866,7 @@
                       <FontSize>8pt</FontSize>
                     </Style>
                     <ChartAxisTitle>
-                      <Caption>Participation Rate</Caption>
+                      <Caption />
                       <Style>
                         <FontFamily>Tahoma</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -3110,6 +3132,41 @@
         </DataSetReference>
       </ValidValues>
       <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="IndicatorName">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>LabourForceParticipationRatio</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>IndicatorName</Prompt>
+      <Hidden>true</Hidden>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>LabourForceParticipationRatio</Value>
+            <Label>LabourForceParticipationRatio</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Column">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>dsIndicatorColumnOption</DataSetName>
+          <ValueField>IndicatorColumnInternalName</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Column</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dsIndicatorColumnOption</DataSetName>
+          <ValueField>IndicatorColumnInternalName</ValueField>
+          <LabelField>IndicatorColumnDisplayName</LabelField>
+        </DataSetReference>
+      </ValidValues>
     </ReportParameter>
   </ReportParameters>
   <Language>en-US</Language>

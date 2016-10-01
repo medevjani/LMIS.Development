@@ -28,11 +28,31 @@
       <Name>dsRegion.rsd</Name>
       <FullPath>dsRegion.rsd</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>dsIndicatorColumnOption.rsd</Name>
+      <FullPath>dsIndicatorColumnOption.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>dsIndicatorDataOption.rsd</Name>
+      <FullPath>dsIndicatorDataoption.rsd</FullPath>
+    </ProjectItem>
   </DataSets>
   <Reports>
     <ProjectItem>
       <Name>LabourForceParticipationRatio.rdl</Name>
       <FullPath>LabourForceParticipationRatio.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>EmploymentToPopulation.rdl</Name>
+      <FullPath>EmploymentToPopulation.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DColLabourForceParticipationRatio.rdl</Name>
+      <FullPath>DColLabourForceParticipationRatio.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Copy of DColLabourForceParticipationRatio.rdl</Name>
+      <FullPath>Copy of DColLabourForceParticipationRatio.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>

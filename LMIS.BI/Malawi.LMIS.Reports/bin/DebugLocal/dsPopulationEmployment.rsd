@@ -77,16 +77,156 @@
         <DataField>OccupationTitle</DataField>
         <rd:TypeName>System.String</rd:TypeName>
       </Field>
-      <Field Name="TotalLabourForce">
-        <DataField>TotalLabourForce</DataField>
-        <rd:TypeName>System.Decimal</rd:TypeName>
+      <Field Name="EducationTitle">
+        <DataField>EducationTitle</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
       </Field>
       <Field Name="TotalPopulation">
         <DataField>TotalPopulation</DataField>
         <rd:TypeName>System.Decimal</rd:TypeName>
       </Field>
-      <Field Name="PerLabourforce">
-        <DataField>PerLabourforce</DataField>
+      <Field Name="TotalLabourForceBroad">
+        <DataField>TotalLabourForceBroad</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalLabourForceStrict">
+        <DataField>TotalLabourForceStrict</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PerLabourForceBroad">
+        <DataField>PerLabourForceBroad</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PerLabourForceStrict">
+        <DataField>PerLabourForceStrict</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalEmployment">
+        <DataField>TotalEmployment</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PerEmployment">
+        <DataField>PerEmployment</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalInactivePopulationBroad">
+        <DataField>TotalInactivePopulationBroad</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalInactivePopulationStrict">
+        <DataField>TotalInactivePopulationStrict</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalPartTimeWorker">
+        <DataField>TotalPartTimeWorker</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PerInactivePopulationBroad">
+        <DataField>PerInactivePopulationBroad</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PerPartTimeWorker">
+        <DataField>PerPartTimeWorker</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalInformalEmployment">
+        <DataField>TotalInformalEmployment</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PerInactivePopulationStrict">
+        <DataField>PerInactivePopulationStrict</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PerInformalEmployment">
+        <DataField>PerInformalEmployment</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalYouthEmployment">
+        <DataField>TotalYouthEmployment</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalUnemploymentBroad">
+        <DataField>TotalUnemploymentBroad</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalUnemploymentStrict">
+        <DataField>TotalUnemploymentStrict</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PerUnemploymentBroad">
+        <DataField>PerUnemploymentBroad</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalAdultEmployment">
+        <DataField>TotalAdultEmployment</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PerUnemploymentStrict">
+        <DataField>PerUnemploymentStrict</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalYouthLabourForceBroad">
+        <DataField>TotalYouthLabourForceBroad</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalYouthLabourForceStrict">
+        <DataField>TotalYouthLabourForceStrict</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalLongTermUnemployment">
+        <DataField>TotalLongTermUnemployment</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalYouthUnemploymentBroad">
+        <DataField>TotalYouthUnemploymentBroad</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalTimeRelUnderEmployment">
+        <DataField>TotalTimeRelUnderEmployment</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalYouthUnemploymentStrict">
+        <DataField>TotalYouthUnemploymentStrict</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PerYouthUnemploymentBroad">
+        <DataField>PerYouthUnemploymentBroad</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PerYouthUnemploymentStrict">
+        <DataField>PerYouthUnemploymentStrict</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalAdultLabourForceBroad">
+        <DataField>TotalAdultLabourForceBroad</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalAdultLabourForceStrict">
+        <DataField>TotalAdultLabourForceStrict</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalAdultUnemploymentBroad">
+        <DataField>TotalAdultUnemploymentBroad</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalAdultUnemploymentStrict">
+        <DataField>TotalAdultUnemploymentStrict</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PerAdultUnemploymentBroad">
+        <DataField>PerAdultUnemploymentBroad</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PerAdultUnemploymentStrict">
+        <DataField>PerAdultUnemploymentStrict</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="TotalEmployedLabourForceBroad">
+        <DataField>TotalEmployedLabourForceBroad</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="TotalEmployedLabourForceStrict">
+        <DataField>TotalEmployedLabourForceStrict</DataField>
         <rd:TypeName>System.Decimal</rd:TypeName>
       </Field>
     </Fields>

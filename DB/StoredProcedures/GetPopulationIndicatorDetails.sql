@@ -19,7 +19,7 @@ GO
 -- Description:	Get populaion related indicator data
 -- GetPopulationIndicatorDetails '1,1','1','1','1'
 -- =============================================
-ALTER PROCEDURE GetPopulationIndicatorDetails 
+ALTER PROCEDURE dbo.GetPopulationIndicatorDetails 
 (
 	@RegionCode VARCHAR(MAX) = NULL
 	,@AgeGroupCode VARCHAR(MAX) = NULL
@@ -29,6 +29,33 @@ ALTER PROCEDURE GetPopulationIndicatorDetails
 
 AS
 BEGIN
+
+DECLARE @ValRegionCode VARCHAR(MAX)
+DECLARE @ValAgeGroupCode VARCHAR(MAX)
+DECLARE @ValGenderCode VARCHAR(MAX)
+DECLARE @ValIncomeGroupCode VARCHAR(MAX)
+SET @ValAgeGroupCode = @AgeGroupCode
+SET @ValGenderCode = @GenderCode
+SET @ValIncomeGroupCode = @IncomeGroupCode
+SET @ValRegionCode = @RegionCode
+
+DECLARE @TableRegion TABLE (Data VARCHAR(100))
+DECLARE @TableAgeGroup TABLE (Data VARCHAR(100))
+DECLARE @TableGender TABLE (Data VARCHAR(100))
+DECLARE @TableIncomeGroup TABLE (Data VARCHAR(100))
+
+INSERT INTO @TableRegion
+SELECT * FROM FnSplit(@ValRegionCode)
+
+INSERT INTO @TableAgeGroup
+SELECT * FROM FnSplit(@ValAgeGroupCode)
+
+INSERT INTO @TableGender
+SELECT * FROM FnSplit(@ValGenderCode)
+
+INSERT INTO @TableIncomeGroup
+SELECT * FROM FnSplit(@ValIncomeGroupCode)
+ 
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
@@ -43,38 +70,44 @@ BEGIN
 	,IG.IncomeGroupTitle
 	,S.SectorTitle
 	,O.OccupationTitle
-	,[TotalLabourForce]
+	,E.EducationTitle
+	,[TotalLabourForceBroad]
+	,[TotalLabourForceStrict]
 	,[TotalPopulation]
-	,[PerLabourforce]
-	--,[TotalInactivePopulation]
-	--,[PerInactivePopulation]
-	--,[TotalEmployment]
-	--,[PerEmployment]
-	--,[TotalPartTimeWorker]
-	--,[PerPartTimeWorker]
-	--,[TotalInformalEmployment]
-	--,[PerInformalEmployment]
-	--,[TotalUnemployment]
-	--,[PerUnemployment]
-	--,[TotalYouthLabourForce]
-	--,[TotalYouthUnemployment]
-	--,[TotalYouthEmployment]
-	--,[PerYouthUnemployment]
-	--,[PerYouthUnemployment]
-	--,[TotalAdultLabourForce]
-	--,[TotalAdultEmployment]
-	--,[TotalAdultUnemployment]
-	--,[PerAdultUnemployment]
-	--,[TotalLongTermUnemployment]
-	--,[TotalEmployedLabourForce]
-	--,[TotalTimeRelUnderEmployment]
-	--,[TotalLessThanPrimaryQualification]
-	--,[TotalPrimaryQualification]
-	--,[TotalSecondaryQualification]
-	--,[TotalUniversityQualification]
-	--,[TotalOtherTertiaryQualification]
-	--,[TotalVocationalQualification]
-	--,[TotalUnknownQualification]
+	,[PerLabourForceBroad]
+	,[PerLabourForceStrict]
+	,[TotalInactivePopulationBroad]
+	,[TotalInactivePopulationStrict]
+	,[PerInactivePopulationBroad]
+	,[PerInactivePopulationStrict]
+	,[TotalEmployment]
+	,[PerEmployment]
+	,[TotalPartTimeWorker]
+	,[PerPartTimeWorker]
+	,[TotalInformalEmployment]
+	,[PerInformalEmployment]
+	,[TotalUnemploymentBroad]
+	,[TotalUnemploymentStrict]
+	,[PerUnemploymentBroad]
+	,[PerUnemploymentStrict]
+	,[TotalYouthLabourForceBroad]
+	,[TotalYouthLabourForceStrict]
+	,[TotalYouthUnemploymentBroad]
+	,[TotalYouthUnemploymentStrict]
+	,[TotalYouthEmployment]
+	,[PerYouthUnemploymentBroad]
+	,[PerYouthUnemploymentStrict]
+	,[TotalAdultLabourForceBroad]
+	,[TotalAdultLabourForceStrict]
+	,[TotalAdultEmployment]
+	,[TotalAdultUnemploymentBroad]
+	,[TotalAdultUnemploymentStrict]
+	,[PerAdultUnemploymentBroad]
+	,[PerAdultUnemploymentStrict]
+	,[TotalLongTermUnemployment]
+	,[TotalEmployedLabourForceBroad]
+	,[TotalEmployedLabourForceStrict]
+	,[TotalTimeRelUnderEmployment]
 	FROM [dbo].[LF_Indicator_PopulationEmployment] LFIPE
 	LEFT JOIN dbo.Region R
 	ON LFIPE.RegionId = R.RegionId
@@ -94,10 +127,12 @@ BEGIN
 	ON LFIPE.SectorId = S.SectorId
 	LEFT JOIN dbo.Occupation O
 	ON LFIPE.OcupationId = O.OccupationId
-	WHERE ((R.RegionCode IS NULL AND @RegionCode LIKE '%-1%') OR (R.RegionCode IN (SELECT * FROM FnSplit(@RegionCode))))
-	AND ((AG.AgeGroupCode IS NULL AND @AgeGroupCode LIKE '%-1%') OR (AG.AgeGroupCode IN (SELECT * FROM FnSplit(@AgeGroupCode))))
-	AND( (G.GenderCode IS NULL AND @GenderCode LIKE '%-1%') OR (G.GenderCode IN (SELECT * FROM FnSplit(@GenderCode))))
-	AND ((IG.IncomeGroupCode IS NULL AND @IncomeGroupCode LIKE '%-1%') OR (IG.IncomeGroupCode IN (SELECT * FROM FnSplit(@IncomeGroupCode))))
+	LEFT JOIN dbo.Education E
+	ON LFIPE.EducationId = E.EducationId
+	WHERE ((R.RegionCode IS NULL AND @ValRegionCode LIKE '%-1%') OR (R.RegionCode IN (SELECT * FROM @TableRegion)))
+	AND ((AG.AgeGroupCode IS NULL AND @ValAgeGroupCode LIKE '%-1%') OR (AG.AgeGroupCode IN (SELECT * FROM @TableAgeGroup)))
+	AND( (G.GenderCode IS NULL AND @ValGenderCode LIKE '%-1%') OR (G.GenderCode IN (SELECT * FROM @TableGender)))
+	AND ((IG.IncomeGroupCode IS NULL AND @ValIncomeGroupCode LIKE '%-1%') OR (IG.IncomeGroupCode IN (SELECT * FROM @TableIncomeGroup)))
 	----AND G.GenderId IN(SELECT * FROM FnSplit(@GenderId))
 	--AND IG.IncomeGroupId IN(SELECT * FROM FnSplit(@IncomeGroupId))
 END
